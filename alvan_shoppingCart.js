@@ -43,7 +43,7 @@ function showCart() {
         index += 1
         cartInfo += `Item${index}: ${item.item}, Quantity: ${item.qty}\n============================\n`;
     });
-    return cartInfo;
+    return cartInfo + totalPriceOfCart();
 }
 
 // ADD ITEM TO THE CART
@@ -102,18 +102,15 @@ console.log(showList());// This will display name and pricing in the lists
 
 console.log(showCart());// This will display name and qty in the cart
 console.log(totalItemsInCart());// This will display the compiled qty in the cart
-console.log(totalPriceOfCart());// This will calculate the total of cart
 
 addItem('Cat', 5); // This will update the qty of 'Cat' to 15
 addItem('Dog', 20); // This will add 'Dog' and qty of 20
 
 console.log(showCart());
 console.log(totalItemsInCart());
-console.log(totalPriceOfCart());
 
 removeItem('Cat'); // This will remove 'Cat'
 removeItem('Milk'); // This will throw an error
 
 console.log(showCart());
 console.log(totalItemsInCart());
-console.log(totalPriceOfCart());
