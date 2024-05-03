@@ -109,8 +109,17 @@ addItem('Dog', 20); // This will add 'Dog' and qty of 20
 console.log(showCart());
 console.log(totalItemsInCart());
 
-removeItem('Cat'); // This will remove 'Cat'
-removeItem('Milk'); // This will throw an error
+// removeItem('Cat'); // This will remove 'Cat'
+// removeItem('Milk'); // This will throw an error
 
-console.log(showCart());
-console.log(totalItemsInCart());
+// console.log(showCart());
+// console.log(totalItemsInCart());
+
+module.exports = {
+    showList,
+    showCart,
+    addItem,
+    removeItem,
+    totalItemsInCart,
+    totalPriceOfCart
+}
