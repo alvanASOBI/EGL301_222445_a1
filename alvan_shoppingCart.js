@@ -26,7 +26,7 @@ let list = [
 
 // DISPLAY ALL THE ITEMS AND PRICING
 function showList() {
-    let listInfo = 'LIST OF ITEMS\n========================\n';
+    let listInfo = '\n========================\nLIST OF ITEMS\n========================\n';
     let index = 0
     list.forEach(item => {
         index += 1
@@ -37,7 +37,7 @@ function showList() {
 
 // DISPLAY ALL THE ITEMS AND ITS DETAILS
 function showCart() {
-    let cartInfo = 'THIS IS YOUR CART\n============================\n';
+    let cartInfo = '\n============================\nTHIS IS YOUR CART\n============================\n';
     let index = 0
     cart.forEach(item => {
         index += 1
@@ -109,11 +109,11 @@ addItem('Dog', 20); // This will add 'Dog' and qty of 20
 console.log(showCart());
 console.log(totalItemsInCart());
 
-// removeItem('Cat'); // This will remove 'Cat'
-// removeItem('Milk'); // This will throw an error
+removeItem('Cat'); // This will remove 'Cat'
+removeItem('Milk'); // This will throw an error
 
-// console.log(showCart());
-// console.log(totalItemsInCart());
+console.log(showCart());
+console.log(totalItemsInCart());
 
 module.exports = {
     showList,
