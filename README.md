@@ -1,26 +1,62 @@
-# Assignment 1
+# Assignment 1 Node-Cart-Module
 
-My node module functions as a shopping cart, being _**versatile**_ in both in the entertainment and F&B industries. For both my module and Lab2 both share similar functions, an adding, a removing and a form of get-number-of-content function.
+## Description
 
-## Set Up
+This Node.js module provides functionality for managing a cart system, including adding items to the cart, removing items, and calculating the total price and quantity of items in the cart.
 
-- Type in anything you want to sell in the array, content **must** be JSON {}
-- **However** it has to follow a format of _name_ and _price_ (price can be a float/int, **DO NOT** make it a string)
+## Installation
 
-## How to use
+To use this module in your Node.js project, follow these steps:
 
-- You can populate the **cart** array with _your_ data
-- Data entered in the cart must **corrolate** with the **list items**
-- Call the function if you need to use it
-- To display, "console.log( _insert the function you want_ );"
+1. Install Node.js on your system if it's not already installed.
+2. Create a new Node.js project or navigate to an existing one.
+3. Install the node-cart module using npm:
 
-### Example
-
-- showList() is the function
-
-`console.log(showList());`
+```bash
+npm install node-cart
+```
 
 
+## Usage
+Once the module is installed, you can use it in your JavaScript files as follows:
+
+```bash
+const cart = require('node-cart');
+
+// Display the list of items and pricing
+console.log(cart.showList());
+
+// Add items to the cart
+cart.addItem('Cat', 5);
+cart.addItem('Dog', 20);
+
+// Display the cart and total items in cart
+console.log(cart.showCart());
+console.log(cart.totalItemsInCart());
+
+// Remove items from the cart
+cart.removeItem('Cat');
+cart.removeItem('Milk'); // This will throw an error
+
+// Display the updated cart and total items in cart
+console.log(cart.showCart());
+console.log(cart.totalItemsInCart());
+
+// Get the total price of items in the cart
+console.log(cart.totalPriceOfCart());
+```
+
+## Functions
+- showList(): Displays the list of items and their prices.
+- showCart(): Displays the items in the cart along with their quantities.
+- addItem(item, qty): Adds the specified quantity of an item to the cart.
+- removeItem(item): Removes the specified item from the cart.
+- totalItemsInCart(): Returns the total number of items in the cart.
+- totalPriceOfCart(): Calculates and returns the total price of items in the cart.
+
+## Notes
+- Ensure that you have a valid list of items with prices defined in your application.
+- Modify the list array in your code to add or update items as needed.
 <!-- 
 You will only need one file, ie, your node module, for this assignment.
 
