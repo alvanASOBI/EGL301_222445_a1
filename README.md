@@ -13,7 +13,7 @@ To use this module in your Node.js project, follow these steps:
 3. Install the node-cart module using npm:
 
 ```bash
-npm install node-cart
+npm install alvan_node-cart-module
 ```
 
 
