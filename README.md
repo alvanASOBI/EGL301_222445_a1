@@ -29,6 +29,8 @@ console.log(cart.showList());
 // Add items to the cart
 cart.addItem('Cat', 5);
 cart.addItem('Dog', 20);
+addItem('Dog', -1); // This will throw an error
+addItem('Dog', 'i'); // This will throw an error
 
 // Display the cart and total items in cart
 console.log(cart.showCart());
@@ -38,21 +40,18 @@ console.log(cart.totalItemsInCart());
 cart.removeItem('Cat');
 cart.removeItem('Milk'); // This will throw an error
 
-// Display the updated cart and total items in cart
+// Display the updated cart, total items and total price of items in cart
 console.log(cart.showCart());
-console.log(cart.totalItemsInCart());
-
-// Get the total price of items in the cart
-console.log(cart.totalPriceOfCart());
 ```
 
 ## Functions
 - showList(): Displays the list of items and their prices.
-- showCart(): Displays the items in the cart along with their quantities.
-- addItem(item, qty): Adds the specified quantity of an item to the cart.
-- removeItem(item): Removes the specified item from the cart.
+- showCart(): Displays the items in the cart along with their quantities, total itmes and total price.
+- addItem(item, qty): Adds the specified quantity of an item to the cart. If the input is invalid, it throws an error.
+- removeItem(item): Removes the specified item from the cart. If the input is invalid, it throws an error.
 - totalItemsInCart(): Returns the total number of items in the cart.
 - totalPriceOfCart(): Calculates and returns the total price of items in the cart.
+- validateInput(): Validates the input quantity to ensure it's a valid number greater than 0. If the input is invalid, it throws an error with a message prompting the user to enter a valid quantity.
 
 ## Notes
 - Ensure that you have a valid list of items with prices defined in your application.
