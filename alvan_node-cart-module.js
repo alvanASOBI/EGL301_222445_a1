@@ -48,15 +48,24 @@ function showCart() {
 
 // ADD ITEM TO THE CART
 function addItem(item, qty) {
-    // Check if item exists in the cart
-    let duplicateItem = cart.find(x => x.item === item);
+    if (isNaN(qty) || qty <= 0) {
+        console.log('Invalid quantity. Please enter a valid number greater than 0.\n');
+        return;
+    }
 
-    if (duplicateItem) {
-        // Item exists, update qty
-        duplicateItem.qty += qty;
-        console.log(`Updated quantity of ${item} in cart: ${duplicateItem.qty}...\n`);
+    let listItem = list.find(listItem => listItem.item === item);
+
+    if (!listItem) {
+        console.log(`${item} not found in the list. Cannot add to cart.\n`);
+        return;
+    }
+
+    let cartItem = cart.find(cartItem => cartItem.item === item);
+
+    if (cartItem) {
+        cartItem.qty += qty;
+        console.log(`Updated quantity of ${item} in cart: ${cartItem.qty}...\n`);
     } else {
-        // Item doesnt exists, add to cart
         cart.push({ item: item, qty: qty });
         console.log(`Added ${qty} ${item}(s) to cart...\n`);
     }
@@ -105,6 +114,7 @@ console.log(totalItemsInCart());// This will display the compiled qty in the car
 
 addItem('Cat', 5); // This will update the qty of 'Cat' to 15
 addItem('Dog', 20); // This will add 'Dog' and qty of 20
+addItem('Dog', 'i'); // This will throw an error for invalid input type
 
 console.log(showCart());
 console.log(totalItemsInCart());
