@@ -1,28 +1,18 @@
-let cart = [
-    {
-        item: 'Cat',
-        qty: 10,
-    }
-]
+let cart = [{item: 'Cat',qty: 10,}]
 
 let list = [
-    {
-        item: 'Cat',
-        price: 5,
-    },
-    {
-        item: 'Dog',
-        price: 10,
-    },
-    {
-        item: 'Egg',
-        price: 3.5,
-    },
-    {
-        item: 'Milk',
-        price: 5,
-    }
+    {item: 'Cat',price: 5,},
+    {item: 'Dog',price: 10,},
+    {item: 'Egg',price: 3.5,},
+    {item: 'Milk',price: 5,}
 ]
+
+// VALIDATES INPUTS, keeps the code reusable and encourages clean coding
+function validateInput(qty) {
+    if (isNaN(qty) || qty <= 0) {
+        throw new Error('Invalid quantity format. Please enter a valid number greater than 0.');
+    }
+}
 
 // DISPLAY ALL THE ITEMS AND PRICING
 function showList() {
@@ -48,62 +38,64 @@ function showCart() {
 
 // ADD ITEM TO THE CART
 function addItem(item, qty) {
-    if (isNaN(qty) || qty <= 0) {
-        console.log('Invalid quantity. Please enter a valid number greater than 0.\n');
-        return;
-    }
+    try {
+        validateInput(qty);
+        let listItem = list.find((listItem) => listItem.item === item);
+        if (!listItem) {
+            throw new Error(`${item} not found in the list. Cannot add to cart.`);
+        }
 
-    let listItem = list.find(listItem => listItem.item === item);
-
-    if (!listItem) {
-        console.log(`${item} not found in the list. Cannot add to cart.\n`);
-        return;
-    }
-
-    let cartItem = cart.find(cartItem => cartItem.item === item);
-
-    if (cartItem) {
-        cartItem.qty += qty;
-        console.log(`Updated quantity of ${item} in cart: ${cartItem.qty}...\n`);
-    } else {
-        cart.push({ item: item, qty: qty });
-        console.log(`Added ${qty} ${item}(s) to cart...\n`);
+        let cartItem = cart.find((cartItem) => cartItem.item === item);
+        if (cartItem) {
+            cartItem.qty += qty;
+            console.log(`Updated quantity of ${item} in cart: ${cartItem.qty}...\n`);
+        } else {
+            cart.push({ item: item, qty: qty });
+            console.log(`Added ${qty} ${item}(s) to cart...\n`);
+        }
+    } catch (error) {
+        console.error(error.message);
+        return; // Stop further execution on error
     }
 }
 
 // REMOVE ITEM IN THE CART
 function removeItem(item) {
-    // Find the index of the item in the cart
-    let index = cart.findIndex(x => x.item === item);
+    let index = cart.findIndex((x) => x.item === item);
     if (index !== -1) {
-        // Item exists, remove it
         cart.splice(index, 1);
         console.log(`Removed ${item} from the cart...\n`);
     } else {
-        // Item doesn't exist, throw an error
-        console.log(`Invalid, ${item}(s) not found...\n`);
+        console.error(`Invalid item: ${item} not found in the cart.\n`);
+        return; // Stop further execution on error
     }
+}
+
+// TOTAL PRICE OF CART - Optimized version
+function totalPriceOfCart() {
+    let itemMap = new Map();
+    list.forEach((item) => itemMap.set(item.item, item.price));
+
+    let totalPrice = cart.reduce((acc, curr) => {
+        let price = itemMap.get(curr.item);
+        return acc + (price ? price * curr.qty : 0);
+    }, 0);
+
+    return `[Total price of cart: \$${totalPrice}]\n`;
 }
 
 // COMPILES THE QTY OF ITEMS IN THE CART
 function totalItemsInCart() {
-    let cartInfo = '';
-    let total = 0;
-    cart.forEach(i => { total += i.qty })
-    cartInfo += `There are ${total} items in the cart...\n`;
-
-    return cartInfo;
+    let total = cart.reduce((acc, curr) => acc + curr.qty, 0);
+    return `There are ${total} items in the cart...\n`;
 }
 
 // TOTAL PRICE OF CART
 function totalPriceOfCart() {
-    let totalPrice = 0;
-    cart.forEach(cartItem => {
-        let listItem = list.find(listItem => listItem.item === cartItem.item);// Find the corresponding item in the list
-        if (listItem) {
-            totalPrice += listItem.price * cartItem.qty; // Calculate subtotal for each item
-        }
-    });
+    let totalPrice = cart.reduce((acc, curr) => {
+        let listItem = list.find((listItem) => listItem.item === curr.item);
+        return acc + (listItem ? listItem.price * curr.qty : 0);
+    }, 0);
     return `[Total price of cart: \$${totalPrice}]\n`;
 }
 
@@ -114,6 +106,7 @@ console.log(totalItemsInCart());// This will display the compiled qty in the car
 
 addItem('Cat', 5); // This will update the qty of 'Cat' to 15
 addItem('Dog', 20); // This will add 'Dog' and qty of 20
+addItem('Dog', -1); // This will throw an error for invalid input type
 addItem('Dog', 'i'); // This will throw an error for invalid input type
 
 console.log(showCart());
