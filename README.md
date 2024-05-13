@@ -2,7 +2,7 @@
 
 ## Description
 
-This Node.js module provides functionality for managing a cart system, including adding items to the cart, removing items, and calculating the total price and quantity of items in the cart.
+This Node.js module provides functionality for managing a cart system, including adding items to the cart, removing items, updating item quantities, and calculating the total price and quantity of items in the cart.
 
 ## Installation
 
@@ -24,35 +24,44 @@ Once the module is installed, you can use it in your JavaScript files as follows
 const cart = require('node-cart');
 
 // Display the list of items and pricing
-console.log(cart.showList());
+console.log(cart.displayList());
 
 // Add items to the cart
-cart.addItem('Cat', 5);
-cart.addItem('Dog', 20);
-addItem('Dog', -1); // This will throw an error
-addItem('Dog', 'i'); // This will throw an error
+cart.addItemToCart('Cat', 5);
+cart.addItemToCart('Dog', 20);
 
 // Display the cart and total items in cart
-console.log(cart.showCart());
+console.log(cart.displayCart());
+console.log(cart.totalItemsInCart());
+
+// Update item quantity in the cart
+cart.updateItemQuantity('Cat', 8);
+
+// Display the updated cart and total items in cart
+console.log(cart.displayCart());
 console.log(cart.totalItemsInCart());
 
 // Remove items from the cart
-cart.removeItem('Cat');
-cart.removeItem('Milk'); // This will throw an error
+cart.removeItemFromCart('Cat');
 
-// Display the updated cart, total items and total price of items in cart
-console.log(cart.showCart());
+// Display the updated cart and total items in cart
+console.log(cart.displayCart());
+console.log(cart.totalItemsInCart());
+
+// Get the total price of items in the cart
+console.log(cart.totalPriceOfCart());
 ```
 
 ## Functions
-- showList(): Displays the list of items and their prices.
-- showCart(): Displays the items in the cart along with their quantities, total itmes and total price.
-- addItem(item, qty): Adds the specified quantity of an item to the cart. If the input is invalid, it throws an error.
-- removeItem(item): Removes the specified item from the cart. If the input is invalid, it throws an error.
+- displayList(): Displays the list of items and their prices.
+- displayCart(): Displays the items in the cart along with their quantities and total price.
+- addItemToCart(item, qty): Adds the specified quantity of an item to the cart.
+- removeItemFromCart(item): Removes the specified item from the cart.
+- updateItemQuantity(item, qty): Updates the quantity of the specified item in the cart.
 - totalItemsInCart(): Returns the total number of items in the cart.
 - totalPriceOfCart(): Calculates and returns the total price of items in the cart.
-- validateInput(): Validates the input quantity to ensure it's a valid number greater than 0. If the input is invalid, it throws an error with a message prompting the user to enter a valid quantity.
 
 ## Notes
 - Ensure that you have a valid list of items with prices defined in your application.
 - Modify the list array in your code to add or update items as needed.
+- Validate input quantities using the validateInput(qty) function before adding items to the cart.
