@@ -32,24 +32,22 @@ cart.addItemToCart('Dog', 20);
 
 // Display the cart and total items in cart
 console.log(cart.displayCart());
-console.log(cart.totalItemsInCart());
 
 // Update item quantity in the cart
 cart.updateItemQuantity('Cat', 8);
 
 // Display the updated cart and total items in cart
 console.log(cart.displayCart());
-console.log(cart.totalItemsInCart());
 
 // Remove items from the cart
 cart.removeItemFromCart('Cat');
 
 // Display the updated cart and total items in cart
 console.log(cart.displayCart());
-console.log(cart.totalItemsInCart());
 
 // Get the total price of items in the cart
 console.log(cart.totalPriceOfCart());
+
 ```
 
 ## Functions
