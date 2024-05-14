@@ -1,5 +1,14 @@
 # Assignment 1 Node-Cart-Module
 
+<summary>Table of contents<summary>
+
+- Description
+- Installation
+- Usage
+- Functions
+- Notes
+- Citation
+
 ## Description
 
 This Node.js module provides functionality for managing a cart system, including adding items to the cart, removing items, updating item quantities, and calculating the total price and quantity of items in the cart.
@@ -16,8 +25,8 @@ To use this module in your Node.js project, follow these steps:
 npm install alvan_node-cart-module
 ```
 
-
 ## Usage
+
 Once the module is installed, you can use it in your JavaScript files as follows:
 
 ```bash
@@ -51,6 +60,7 @@ console.log(cart.totalPriceOfCart());
 ```
 
 ## Functions
+
 - displayList(): Displays the list of items and their prices.
 - displayCart(): Displays the items in the cart along with their quantities and total price.
 - addItemToCart(item, qty): Adds the specified quantity of an item to the cart.
@@ -60,6 +70,11 @@ console.log(cart.totalPriceOfCart());
 - totalPriceOfCart(): Calculates and returns the total price of items in the cart.
 
 ## Notes
+
 - Ensure that you have a valid list of items with prices defined in your application.
 - Modify the list array in your code to add or update items as needed.
 - Validate input quantities using the validateInput(qty) function before adding items to the cart.
+
+## Citation
+
+- Whole README File is from ChatGPT 3.5
