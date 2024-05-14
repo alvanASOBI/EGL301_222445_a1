@@ -1,19 +1,24 @@
 # Assignment 1 Node-Cart-Module
 
-<summary>Table of contents<summary>
+<details>
+<summary>Table of contents</summary>
 
-- Description
-- Installation
-- Usage
-- Functions
-- Notes
-- Citation
+## Table of contents
 
-## Description
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Functions](#functions)
+- [Notes](#notes)
+- [Citation](#citation)
+
+</details>
+
+## [Description](#assignment-1-node-cart-module)
 
 This Node.js module provides functionality for managing a cart system, including adding items to the cart, removing items, updating item quantities, and calculating the total price and quantity of items in the cart.
 
-## Installation
+## [Installation](#assignment-1-node-cart-module)
 
 To use this module in your Node.js project, follow these steps:
 
@@ -21,15 +26,15 @@ To use this module in your Node.js project, follow these steps:
 2. Create a new Node.js project or navigate to an existing one.
 3. Install the node-cart module using npm:
 
-```bash
+```ruby
 npm install alvan_node-cart-module
 ```
 
-## Usage
+## [Usage](#assignment-1-node-cart-module)
 
 Once the module is installed, you can use it in your JavaScript files as follows:
 
-```bash
+```ruby
 const cart = require('node-cart');
 
 // Display the list of items and pricing
@@ -59,7 +64,7 @@ console.log(cart.totalPriceOfCart());
 
 ```
 
-## Functions
+## [Functions](#assignment-1-node-cart-module)
 
 - displayList(): Displays the list of items and their prices.
 - displayCart(): Displays the items in the cart along with their quantities and total price.
@@ -69,12 +74,14 @@ console.log(cart.totalPriceOfCart());
 - totalItemsInCart(): Returns the total number of items in the cart.
 - totalPriceOfCart(): Calculates and returns the total price of items in the cart.
 
-## Notes
+## [Notes](#assignment-1-node-cart-module)
+
+> [!NOTE]
 
 - Ensure that you have a valid list of items with prices defined in your application.
 - Modify the list array in your code to add or update items as needed.
 - Validate input quantities using the validateInput(qty) function before adding items to the cart.
 
-## Citation
+## [Citation](#assignment-1-node-cart-module)
 
 - Whole README File is from ChatGPT 3.5
