@@ -1,11 +1,17 @@
+/** Cart module for managing a cart system @module cart */
+
 // Define initial cart and list of items with prices
 let cart = [{ item: 'Cat', qty: 10 }];
 let list = [
-    { item: 'Cat', price: 5 },
-    { item: 'Dog', price: 10 },
-    { item: 'Egg', price: 3.5 },
-    { item: 'Milk', price: 5 }
+{ item: 'Cat', price: 5 },
+{ item: 'Dog', price: 10 },
+{ item: 'Egg', price: 3.5 },
+{ item: 'Milk', price: 5 }
 ];
+
+/** Validates the input quantity.
+@param {number} qty - The quantity to validate. 
+@throws {Error} If the quantity is not a number or less than or equal to zero. */
 
 // Function to validate input quantity
 // Throws an error if quantity is not a number or less than or equal to zero
@@ -15,6 +21,10 @@ function validateInput(qty) {
     }
 }
 
+/** Validates the item name.
+@param {string} item - The item name to validate.
+@throws {Error} If the item name is not a string or is an empty string. */
+
 // Function to validate item name
 // Throws an error if item name is not a string or is an empty string
 function validateItemName(item) {
@@ -23,6 +33,10 @@ function validateItemName(item) {
     }
 }
 
+/** Finds an item in the list.
+@param {string} item - The item name to search for.
+@returns {Object|undefined} The item if found, otherwise undefined. */
+
 // Function to find an item in the list
 // Returns the item if found, otherwise returns undefined
 // This was suggested from ChatGPT 3.5
@@ -30,12 +44,18 @@ function findItemInList(item) {
     return list.find(listItem => listItem.item === item);
 }
 
+/** Displays the list of items and their prices.
+@returns {string} A formatted string with all items and their prices. */
+
 // Function to find an item in the cart
 // Returns the item if found, otherwise returns undefined
 // This was suggested from ChatGPT 3.5
 function findItemInCart(item) {
     return cart.find(cartItem => cartItem.item === item);
 }
+
+/** Displays the list of items and their prices.
+@returns {string} A formatted string with all items and their prices. */
 
 // Function to display the list of items and their prices
 // Returns a formatted string with all items and their prices
@@ -47,6 +67,9 @@ function displayList() {
     return listInfo;
 }
 
+/** Displays the items in the cart along with their quantities.
+@returns {string} A formatted string with all cart items and their quantities. */
+
 // Function to display the items in the cart along with their quantities
 // Returns a formatted string with all cart items and their quantities
 function displayCart() {
@@ -56,6 +79,11 @@ function displayCart() {
     });
     return cartInfo + totalPriceOfCart();
 }
+
+/** Adds an item with a specified quantity to the cart.
+@param {string} item - The item name to add.
+@param {number} qty - The quantity to add.
+@throws {Error} If the item does not exist in the list or input is invalid. */
 
 // Function to add an item with a specified quantity to the cart
 // Validates the input and adds the item to the cart if it exists in the list
@@ -81,6 +109,10 @@ function addItemToCart(item, qty) {
     }
 }
 
+/** Removes an item from the cart.
+@param {string} item - The item name to remove.
+@throws {Error} If the item does not exist in the cart or input is invalid */
+
 // Function to remove an item from the cart
 // Removes the item from the cart if it exists
 function removeItemFromCart(item) {
@@ -98,6 +130,11 @@ function removeItemFromCart(item) {
     }
 }
 
+/** Updates the quantity of an item in the cart.
+@param {string} item - The item name to update.
+@param {number} qty - The new quantity to set.
+@throws {Error} If the item does not exist in the cart or input is invalid. */
+
 // Function to update the quantity of an item in the cart
 // Updates the item's quantity if it exists in the cart
 function updateItemQuantity(item, qty) {
@@ -114,6 +151,9 @@ function updateItemQuantity(item, qty) {
         console.error(error.message);
     }
 }
+
+/** Calculates the total price of items in the cart.
+@returns {string} A formatted string with the total price of the cart. */
 
 // Function to calculate the total price of items in the cart
 // Returns a formatted string with the total price of the cart
