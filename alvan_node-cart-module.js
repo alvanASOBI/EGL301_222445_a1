@@ -25,12 +25,14 @@ function validateItemName(item) {
 
 // Function to find an item in the list
 // Returns the item if found, otherwise returns undefined
+// This was suggested from ChatGPT 3.5
 function findItemInList(item) {
     return list.find(listItem => listItem.item === item);
 }
 
 // Function to find an item in the cart
 // Returns the item if found, otherwise returns undefined
+// This was suggested from ChatGPT 3.5
 function findItemInCart(item) {
     return cart.find(cartItem => cartItem.item === item);
 }

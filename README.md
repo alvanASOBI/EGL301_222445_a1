@@ -67,12 +67,9 @@ console.log(cart.totalPriceOfCart());
 - addItemToCart(item, qty): Adds the specified quantity of an item to the cart.
 - removeItemFromCart(item): Removes the specified item from the cart.
 - updateItemQuantity(item, qty): Updates the quantity of the specified item in the cart.
-- totalItemsInCart(): Returns the total number of items in the cart.
 - totalPriceOfCart(): Calculates and returns the total price of items in the cart.
 
 ## [Notes](#assignment-1-node-cart-module)
-
-> [!NOTE]
 
 - Ensure that you have a valid list of items with prices defined in your application.
 - Modify the list array in your code to add or update items as needed.
@@ -80,4 +77,6 @@ console.log(cart.totalPriceOfCart());
 
 ## [Citation](#assignment-1-node-cart-module)
 
-- Whole README File is from ChatGPT 3.5
+- [Installation](#installation) section was referenced from ChatGPT 3.5
+- [Functions](#functions) section was referenced from ChatGPT 3.5
+- [Notes](#notes) section was referenced from ChatGPT 3.5
