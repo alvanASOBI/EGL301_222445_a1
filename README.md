@@ -1,8 +1,5 @@
 # Assignment 1 Node-Cart-Module
 
-<details>
-<summary>Table of contents</summary>
-
 ## Table of contents
 
 - [Description](#description)
@@ -12,7 +9,6 @@
 - [Notes](#notes)
 - [Citation](#citation)
 
-</details>
 
 ## [Description](#assignment-1-node-cart-module)
 
