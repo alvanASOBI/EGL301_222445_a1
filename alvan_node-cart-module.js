@@ -93,7 +93,7 @@ function addItemToCart(item, qty) {
         validateInput(qty);
         let listItem = findItemInList(item);
         if (!listItem) {
-            throw new Error(`${item} not found in the list. Cannot add to cart.`);
+            throw new Error(`${item} not found in the list. Cannot add to cart.\n`);
         }
 
         let cartItem = findItemInCart(item);
@@ -123,7 +123,7 @@ function removeItemFromCart(item) {
             cart.splice(index, 1);
             console.log(`Removed ${item} from the cart...\n`);
         } else {
-            throw new Error(`Invalid item: ${item} not found in the cart.`);
+            throw new Error(`Invalid item: ${item} not found in the cart.\n`);
         }
     } catch (error) {
         console.error(error.message);
@@ -143,7 +143,7 @@ function updateItemQuantity(item, qty) {
         validateInput(qty);
         let cartItem = findItemInCart(item);
         if (!cartItem) {
-            throw new Error(`${item} not found in the cart. Cannot update quantity.`);
+            throw new Error(`${item} not found in the cart. Cannot update quantity.\n`);
         }
         cartItem.qty = qty;
         console.log(`Updated quantity of ${item} in cart to ${qty}...\n`);
