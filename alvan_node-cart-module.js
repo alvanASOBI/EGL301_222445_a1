@@ -3,10 +3,10 @@
 // Define initial cart and list of items with prices
 let cart = [{ item: 'Cat', qty: 10 }];
 let list = [
-{ item: 'Cat', price: 5 },
-{ item: 'Dog', price: 10 },
-{ item: 'Egg', price: 3.5 },
-{ item: 'Milk', price: 5 }
+    { item: 'Cat', price: 5 },
+    { item: 'Dog', price: 10 },
+    { item: 'Egg', price: 3.5 },
+    { item: 'Milk', price: 5 }
 ];
 
 /** Validates the input quantity.

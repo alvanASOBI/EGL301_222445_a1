@@ -20,11 +20,7 @@ To use this module in your Node.js project, follow these steps:
 
 1. Install Node.js on your system if it's not already installed.
 2. Create a new Node.js project or navigate to an existing one.
-3. Install the node-cart module using npm:
-
-```ruby
-npm install alvan_node-cart-module
-```
+3. Copy (Crtl + C) the code from ```alvan_node-cart-module.js``` file and paste (Crtl + V) it to the new Node.js.
 
 ## [Usage](#assignment-1-node-cart-module)
 
@@ -76,7 +72,3 @@ console.log(cart.totalPriceOfCart());
 - Validate input quantities using the validateInput(qty) function before adding items to the cart.
 
 ## [Citation](#assignment-1-node-cart-module)
-
-- [Installation](#installation) section was referenced from ChatGPT 3.5
-- [Functions](#functions) section was referenced from ChatGPT 3.5
-- [Notes](#notes) section was referenced from ChatGPT 3.5
