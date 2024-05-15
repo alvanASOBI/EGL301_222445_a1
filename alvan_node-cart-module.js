@@ -190,3 +190,5 @@ module.exports = {
     removeItemFromCart,
     updateItemQuantity
 };
+
+// JSDoc formatting was done by ChatGPT 3.5, content is written by me (Alvan)
